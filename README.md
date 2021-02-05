@@ -1,2 +1,2 @@
 # aws-terrascan-test
-A test repository for terrascan aws
+A test repository for terrascan aws.
