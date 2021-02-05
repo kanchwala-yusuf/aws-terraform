@@ -13,12 +13,12 @@ resource "aws_launch_configuration" "blockUnEcryted" {
     volume_type           = "standard"
     volume_size           = 100
     delete_on_termination = true
-    encrypted             = false
+    encrypted             = true
   }
 
   ebs_block_device {
     device_name = "ebs-device"
-    encrypted   = false
+    encrypted   = true
   }
 
   lifecycle {

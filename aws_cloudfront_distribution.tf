@@ -14,7 +14,7 @@ resource "aws_cloudfront_distribution" "s3-distribution-TLS-v1" {
     }
   }
 
-  enabled             = true
+  enabled = true
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -48,9 +48,9 @@ resource "aws_cloudfront_distribution" "s3-distribution-TLS-v1" {
     }
 
     compress               = true
-    viewer_protocol_policy = "allow-all"
+    viewer_protocol_policy = "redirect-to-https"
   }
-    
+
   #viewer_protocol_policy = "redirect-to-https" is the expected configuration
   # Cache behavior with precedence 1
   ordered_cache_behavior {
@@ -75,6 +75,7 @@ resource "aws_cloudfront_distribution" "s3-distribution-TLS-v1" {
       restriction_type = "none"
       locations        = ["US", "CA", "GB", "DE"]
     }
+    geo_restriction = "whitelist"
   }
 
   # logging_config {
@@ -85,8 +86,15 @@ resource "aws_cloudfront_distribution" "s3-distribution-TLS-v1" {
 
   viewer_certificate {
     cloudfront_default_certificate = false
-    minimum_protocol_version = "TLSv1" #expected version is TLSv1.1 or TLSv1.2 
+    minimum_protocol_version       = "TLSv1.2_2018" #expected version is TLSv1.1 or TLSv1.2 
   }
+
+  logging_config {
+    include_cookies = false
+    bucket          = "<bucket>"
+    prefix          = "<prefix>"
+  }
+  web_acl_id = "##arn-of-waf-acl##"
 }
 
 
