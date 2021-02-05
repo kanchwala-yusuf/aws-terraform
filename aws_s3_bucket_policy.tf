@@ -5,109 +5,37 @@
 resource "aws_s3_bucket_policy" "allowActionsFromAllPrincipals" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "*"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"##s3:action##\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "allowDeleteActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:Delete*"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:Delete*\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "allowGetActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:Get*"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:Get*\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "allowListActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:List*"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:List*\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "allowPutActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:Put*"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:Put*\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "allowRestoreActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:Restore*"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:Restore*\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "checkBucketPolicylogging" {
@@ -133,35 +61,11 @@ POLICY
 resource "aws_s3_bucket_policy" "allowReadACPActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetBucketAcl"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:GetBucketAcl\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_s3_bucket_policy" "allowWriteACPActionFromAllPrncpls" {
   bucket = "test"
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:PutBucketAcl"
-    }
-  ]
-}
-POLICY
+  policy = "{\"Id\":\"MYBUCKETPOLICY\",\"Statement\":[{\"Action\":\"s3:PutBucketAcl\",\"Effect\":\"Allow\",\"Principal\":\"##principal##\"}],\"Version\":\"2012-10-17\"}"
 }
