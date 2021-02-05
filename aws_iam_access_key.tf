@@ -5,7 +5,7 @@
 resource "aws_iam_access_key" "noAccessKeyForRootAccount" {
   user    = "root"
   pgp_key = "keybase:some_person_that_exists"
-  status  = "Active"
+  status  = "Inactive"
 }
 
 resource "aws_iam_user" "NewUser" {
@@ -14,7 +14,8 @@ resource "aws_iam_user" "NewUser" {
 }
 
 resource "aws_iam_access_key" "NewUserAccessKey" {
-  user    = "${aws_iam_user.NewUser.name}"
+  user   = "${aws_iam_user.NewUser.name}"
+  status = "Inactive"
 }
 
 output "secret" {
